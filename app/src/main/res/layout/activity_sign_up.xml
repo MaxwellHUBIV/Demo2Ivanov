@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbg">
+
+    <ImageView
+        android:id="@+id/bgimg"
+        android:layout_width="318dp"
+        android:layout_height="57dp"
+        app:layout_constraintBottom_toTopOf="@+id/bgimg_pass1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.979"
+        app:srcCompat="@drawable/loginpaste" />
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg"
+        app:layout_constraintEnd_toEndOf="@+id/bgimg"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="@+id/bgimg"
+        app:layout_constraintTop_toTopOf="@+id/bgimg"
+        app:srcCompat="@drawable/line" />
+
+    <EditText
+        android:id="@+id/login_in"
+        android:layout_width="225dp"
+        android:layout_height="44dp"
+        android:autoText="false"
+        android:ems="10"
+        android:hint="Login"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/darker_gray"
+        android:textColorHint="#BDBDBD"
+        android:textColorLink="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg"
+        app:layout_constraintEnd_toEndOf="@+id/bgimg"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toEndOf="@+id/line"
+        app:layout_constraintTop_toTopOf="@+id/bgimg"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <ImageView
+        android:id="@+id/loginfaceimg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg"
+        app:layout_constraintEnd_toStartOf="@+id/line"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="@+id/bgimg"
+        app:layout_constraintTop_toTopOf="@+id/bgimg"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/logimg" />
+
+    <ImageView
+        android:id="@+id/bgimg_pass1"
+        android:layout_width="318dp"
+        android:layout_height="57dp"
+        app:layout_constraintBottom_toTopOf="@+id/bgimg_pass2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98"
+        app:srcCompat="@drawable/loginpaste" />
+
+    <ImageView
+        android:id="@+id/loginfaceimg3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg_pass1"
+        app:layout_constraintEnd_toStartOf="@+id/line7"
+        app:layout_constraintHorizontal_bias="1.1"
+        app:layout_constraintStart_toStartOf="@+id/bgimg_pass1"
+        app:layout_constraintTop_toTopOf="@+id/bgimg_pass1"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/email" />
+
+    <ImageView
+        android:id="@+id/line7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg_pass1"
+        app:layout_constraintEnd_toEndOf="@+id/bgimg_pass1"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="@+id/bgimg_pass1"
+        app:layout_constraintTop_toTopOf="@+id/bgimg_pass1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/line" />
+
+    <EditText
+        android:id="@+id/email_in"
+        android:layout_width="225dp"
+        android:layout_height="44dp"
+        android:autoText="false"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/darker_gray"
+        android:textColorHint="#BDBDBD"
+        android:textColorLink="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg_pass1"
+        app:layout_constraintEnd_toEndOf="@+id/bgimg_pass1"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toEndOf="@+id/line7"
+        app:layout_constraintTop_toTopOf="@+id/bgimg_pass1"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <ImageView
+        android:id="@+id/bgimg_pass2"
+        android:layout_width="318dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/bgimg_pass3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/loginpaste" />
+
+    <ImageView
+        android:id="@+id/loginfaceimg4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg_pass2"
+        app:layout_constraintEnd_toStartOf="@+id/line8"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="@+id/bgimg_pass2"
+        app:layout_constraintTop_toTopOf="@+id/bgimg_pass2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/passimg" />
+
+    <ImageView
+        android:id="@+id/line8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg_pass2"
+        app:layout_constraintEnd_toEndOf="@+id/bgimg_pass2"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="@+id/bgimg_pass2"
+        app:layout_constraintTop_toTopOf="@+id/bgimg_pass2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/line" />
+
+    <EditText
+        android:id="@+id/pass_in"
+        android:layout_width="225dp"
+        android:layout_height="44dp"
+        android:autoText="false"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/darker_gray"
+        android:textColorHint="#BDBDBD"
+        android:textColorLink="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg_pass2"
+        app:layout_constraintEnd_toEndOf="@+id/bgimg_pass2"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toEndOf="@+id/line8"
+        app:layout_constraintTop_toTopOf="@+id/bgimg_pass2"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <ImageView
+        android:id="@+id/bgimg_pass3"
+        android:layout_width="318dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/signIn_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/loginpaste" />
+
+    <ImageView
+        android:id="@+id/loginfaceimg6"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg_pass3"
+        app:layout_constraintEnd_toStartOf="@+id/line10"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="@+id/bgimg_pass3"
+        app:layout_constraintTop_toTopOf="@+id/bgimg_pass3"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/passimg" />
+
+    <ImageView
+        android:id="@+id/line10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg_pass3"
+        app:layout_constraintEnd_toEndOf="@+id/bgimg_pass3"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="@+id/bgimg_pass3"
+        app:layout_constraintTop_toTopOf="@+id/bgimg_pass3"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/line" />
+
+    <EditText
+        android:id="@+id/pass_in3"
+        android:layout_width="225dp"
+        android:layout_height="44dp"
+        android:autoText="false"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/darker_gray"
+        android:textColorHint="#BDBDBD"
+        android:textColorLink="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/bgimg_pass3"
+        app:layout_constraintEnd_toEndOf="@+id/bgimg_pass3"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toEndOf="@+id/line10"
+        app:layout_constraintTop_toTopOf="@+id/bgimg_pass3"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <Button
+        android:id="@+id/signIn_btn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/signincolor"
+        android:text="Sign up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.955" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
