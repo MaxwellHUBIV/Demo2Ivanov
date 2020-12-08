@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()){
                     Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+                    Intent intent;
+                    intent = new Intent(MainActivity.this, StartScreen.class);
+                    startActivity(intent);
                 }else {
                     Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
                 }
