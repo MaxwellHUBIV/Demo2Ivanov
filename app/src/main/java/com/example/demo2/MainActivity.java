@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Нахождение элементов черех "Найти через айди"
         username = findViewById(R.id.input_Login);
         password = findViewById(R.id.input_password);
         btnLogin = findViewById(R.id.SignIn_btn);
@@ -33,26 +34,27 @@ public class MainActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Переход на окно регистрации
                 Intent intent;
                 intent = new Intent(MainActivity.this, SignUp.class);
                 startActivity(intent);
             }
         });
+        //Проверка пустые ли поля входа
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                if(TextUtils.isEmpty(username.getText().toString())||TextUtils.isEmpty(password.getText().toString())){
-                   Toast.makeText(MainActivity.this, "Username / Password Required", Toast.LENGTH_LONG).show();
+                   Toast.makeText(MainActivity.this, "Username / Password Required", Toast.LENGTH_LONG).show(); //да пустые
                }else{
-                   login();
+                   login(); //Нет, не пустые, - выполнить вход
                }
             }
         });
 
 
     }
-
+//обращение на сервер и выполнение входа
     public void login(){
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername(username.getText().toString());
@@ -60,19 +62,20 @@ public class MainActivity extends AppCompatActivity {
         Call<LoginResponse> loginResponseCall = ApiClient.getUserService().userLogin(loginRequest);
         loginResponseCall.enqueue(new Callback<LoginResponse>() {
             @Override
+            //проверка данных
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if(response.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+                if(response.isSuccessful()){        //Данные верны
+                    Toast.makeText(MainActivity.this, "Добро пожаловать", Toast.LENGTH_LONG).show();
                     Intent intent;
                     intent = new Intent(MainActivity.this, StartScreen.class);
                     startActivity(intent);
-                }else {
-                    Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
+                }else {     //данные не верны
+                    Toast.makeText(MainActivity.this, "Не правильный логин или пароль", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(Call<LoginResponse> call, Throwable t) { //Ошибка доступа к серверу
                 Toast.makeText(MainActivity.this, "Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 
             }
