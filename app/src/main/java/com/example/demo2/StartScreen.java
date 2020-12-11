@@ -76,15 +76,13 @@ public class StartScreen extends AppCompatActivity implements OnMapReadyCallback
                 switch (item.getItemId()) {
                     case R.id.History:
                         //Переход на историю
-                        item.setChecked(true);
-                        startActivity(new Intent(StartScreen.this, History.class));
-                        //displayMessage("Import Selected");
-                        //drawerLayout.closeDrawers();
+                        item.setChecked(true);//Если нажат
+                        startActivity(new Intent(StartScreen.this, History.class));//Активация перехода
                         return true;
                     case R.id.settings:
                         //переход на настройки
-                        item.setChecked(true);
-                        startActivity(new Intent(StartScreen.this, Settings.class));
+                        item.setChecked(true);//Если нажат
+                        startActivity(new Intent(StartScreen.this, Settings.class));//Активация перехода
                         return true;
                 }
 
@@ -96,7 +94,7 @@ public class StartScreen extends AppCompatActivity implements OnMapReadyCallback
     }
 
     //Получение координат
-    private void getCurrentLocation() {
+    private void getCurrentLocation() {//Проверка разрешений
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -131,7 +129,7 @@ public class StartScreen extends AppCompatActivity implements OnMapReadyCallback
         });
     }
 
-    @Override
+    @Override//Проверяет Есть ли разрешения
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode == 44){
             if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
@@ -144,7 +142,7 @@ public class StartScreen extends AppCompatActivity implements OnMapReadyCallback
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
+    private void setSupportActionBar(Toolbar toolbar) {//Класс поддержка для ТулБара
 
     }
 
