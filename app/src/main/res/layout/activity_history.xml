@@ -16,13 +16,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <ImageButton
+            android:id="@+id/button_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_margin="20dp"
             android:layout_weight="1"
-            android:paddingLeft="30dp"
+            android:background="#00FFFFFF"
+            android:tint="#00FFFFFF"
             app:srcCompat="@drawable/path" />
 
     </LinearLayout>
@@ -34,5 +35,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/contenwwt" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
