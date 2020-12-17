@@ -2,6 +2,7 @@
 //Здесь отображаются данные о пользователе
 package com.example.demo2;
 
+//Библиотеки, требуемые для класса
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;

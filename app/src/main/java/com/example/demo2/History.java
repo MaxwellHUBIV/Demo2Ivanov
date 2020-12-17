@@ -1,9 +1,8 @@
 //Окно настроек
 //Здесь отображаются данные о машинах
 package com.example.demo2;
-
+//Библиотеки, требуемые для класса
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

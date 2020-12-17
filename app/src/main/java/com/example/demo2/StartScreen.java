@@ -1,11 +1,19 @@
+//Главный экран приложения.
+//На экране присутстует карта Google Maps.
+//Используется Google Maps API.
+//Карта автоматически наводится на ваше местоположение(Только с реального устройства, не эмулятора).
+//Имеется боковое меню с кнопками для навигации.
+//Открывается боковое мень посредством свайпа вправо.
+//Карта масштабируется и имеет дополнительные элементы управления как компас и кнопки "+" и "-".
+
 package com.example.demo2;
 
+//Библиотеки, требуемые для класса
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
@@ -15,9 +23,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import androidx.fragment.app.FragmentActivity;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -29,19 +35,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.Toolbar;
-
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 public class StartScreen extends AppCompatActivity implements OnMapReadyCallback {
-    private GoogleMap mMap;
-
-    private Toolbar toolbar;
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
-    FusedLocationProviderClient client;
-    SupportMapFragment mapFragment;
+    //Переменные
+    private GoogleMap mMap;//Переменная для карты, чтобы сократить и облегчить обращение к элементам GoogleMaps
+    private Toolbar toolbar;//Переменная для элемента тулбар. Нужна для бокового меню.
+    private DrawerLayout drawerLayout;//Подвязка самого бокового меню.
+    private NavigationView navigationView;//Элемент, для работы свайпа.
+    FusedLocationProviderClient client; //Переменная-массив для нахождения ваших координат.
+    SupportMapFragment mapFragment; //Переменная для работы с картой.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,26 +54,28 @@ public class StartScreen extends AppCompatActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_start_screen);
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+                .findFragmentById(R.id.map);//Нахождение карты через айди
         mapFragment.getMapAsync(this);
 
         //находит локацию
-        client = LocationServices.getFusedLocationProviderClient(this);
+        client = LocationServices.getFusedLocationProviderClient(this);//Получить локацию.
         //Проверяет разрешения
         if (ActivityCompat.checkSelfPermission(StartScreen.this,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {//если есть разрешения.
             getCurrentLocation();
         }else{
             ActivityCompat.requestPermissions(StartScreen.this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);//Если разрешений нет, то идёт из запрос
         }
 
 
-        toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);//тулбар для меню.
         setSupportActionBar(toolbar);
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigationView);
-//Какая кнопка была нажата
+
+        drawerLayout = findViewById(R.id.drawer_layout); //Нахождение бокового меню.
+        navigationView = findViewById(R.id.navigationView);//Нахождение лемента для работы свайпа
+
+//Какая кнопка была нажата в боковом меню
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -77,12 +84,12 @@ public class StartScreen extends AppCompatActivity implements OnMapReadyCallback
                     case R.id.History:
                         //Переход на историю
                         item.setChecked(true);//Если нажат
-                        startActivity(new Intent(StartScreen.this, History.class));//Активация перехода
+                        startActivity(new Intent(StartScreen.this, History.class));//Активация перехода в экран истории
                         return true;
                     case R.id.settings:
                         //переход на настройки
                         item.setChecked(true);//Если нажат
-                        startActivity(new Intent(StartScreen.this, Settings.class));//Активация перехода
+                        startActivity(new Intent(StartScreen.this, Settings.class));//Активация перехода в экран настроек
                         return true;
                 }
 
@@ -108,6 +115,7 @@ public class StartScreen extends AppCompatActivity implements OnMapReadyCallback
         Task<Location> task = client.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
+            //Получение координат вашего местоположения
             public void onSuccess(Location location) {
                 if (location != null) {
                     mapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -129,7 +137,7 @@ public class StartScreen extends AppCompatActivity implements OnMapReadyCallback
         });
     }
 
-    @Override//Проверяет Есть ли разрешения
+    @Override//Проверяет есть ли разрешения
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode == 44){
             if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
